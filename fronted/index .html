@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КотлOFF — Инженерные системы, которые не подведут</title>
+    <!-- Подключение Font Awesome и Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Подключение внешнего CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Кастомный курсор -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Шапка -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="logo-text">Котл<span class="logo-off">OFF</span></div>
+            </a>
+           
+            <div class="header-cta">
+                <button id="openFormBtn" class="header-button">
+                    <i class="fas fa-calendar-alt"></i>
+                    Оставить заявку
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="artboard" id="artboard">
+            <!-- Изображения -->
+            <div class="floating-image" style="background-image: url('images/Hero-1.jpg'); top: 10%; left: 5%; width: 300px; height: 200px;"></div>
+            <div class="floating-image" style="background-image: url('images/Hero-2.jpg'); top: 15%; right: 8%; width: 280px; height: 190px;"></div>
+            <div class="floating-image" style="background-image: url('images/Hero-3.jpg'); top: 50%; left: 3%; width: 320px; height: 210px;"></div>
+            <div class="floating-image" style="background-image: url('images/Hero-4.jpg'); top: 45%; right: 5%; width: 290px; height: 200px;"></div>
+            <div class="floating-image" style="background-image: url('images/Hero-5.jpg'); bottom: 15%; left: 15%; width: 310px; height: 200px;"></div>
+            <div class="floating-image" style="background-image: url('images/Hero-6.jpg'); bottom: 10%; right: 12%; width: 300px; height: 190px;"></div>
+            <div class="bg-overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="hero-label">Инженерные системы</div>
+            <h1 class="hero-title">Ремонт и монтаж,<br><span class="dynamic-text" id="dynamicHeroText"></span></h1>
+            <p class="hero-subtitle">Газовые, сантехнические и электромонтажные работы в Чебоксарах. Выезд за 30 минут, гарантия до 2 лет.</p>
+            
+            <div class="hero-cta">
+                <button id="heroCtaBtn" class="cta-button">
+                    <i class="fas fa-bolt"></i>
+                    Вызвать мастера
+                </button>
+                <a href="#services" class="cta-link">
+                    Все услуги <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок статистики -->
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item" data-animate>
+                <div class="counter-number" data-target="1500">0</div>
+                <div class="stat-label">довольных клиентов</div>
+            </div>
+            <div class="stat-item" data-animate>
+                <div class="counter-number" data-target="50">0</div>
+                <div class="stat-label">мастеров в штате</div>
+            </div>
+            <div class="stat-item" data-animate>
+                <div class="counter-number" data-target="7">0</div>
+                <div class="stat-label">лет средний опыт</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция услуг -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <div class="section-label">Наши компетенции</div>
+                <h2 class="section-title">Профессиональные <span>инженерные решения</span></h2>
+                <p class="section-subtitle">Работаем с любым оборудованием — от бытовых приборов до сложных инженерных систем</p>
+            </div>
+           
+            <div class="services-grid">
+                <!-- Газовые работы -->
+                <div class="service-card gas-card" data-animate>
+                    <div class="service-bg gas-bg"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="service-title">Газовые работы</h3>
+                    <p class="service-description">Ремонт котлов, колонок, плит и духовых шкафов. Работаем с любыми брендами.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Диагностика оборудования</li>
+                        <li><i class="fas fa-check"></i> Ежегодное плановое обслуживание</li>
+                        <li><i class="fas fa-check"></i> Промывка теплообменников</li>
+                        <li><i class="fas fa-check"></i> Ремонт плат управления</li>
+                    </ul>
+                </div>
+                
+                <!-- Сантехнические работы -->
+                <div class="service-card plumbing-card" data-animate>
+                    <div class="service-bg plumbing-bg"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="service-title">Сантехнические работы</h3>
+                    <p class="service-description">Ремонт стиральных машин, бойлеров, посудомоечных машин и холодильников.</p>
+                </div>
+                
+                <!-- МИСС -->
+                <div class="service-card electrical-card" data-animate>
+                    <div class="service-bg miss-bg"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="service-title">МИСС</h3>
+                    <p class="service-description">Монтаж инженерных сантехнических систем: отопление, водоснабжение, канализация.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему выбирают нас -->
+    <section class="why-choose-us" id="why-choose-us">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <div class="section-label">Преимущества</div>
+                <h2 class="section-title">Почему нам <span>доверяют</span></h2>
+                <p class="section-subtitle">Работаем быстро, честно и всегда на связи</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card" data-animate>
+                    <div class="why-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="why-title">Работаем 24/7</h3>
+                    <p class="why-text">Круглосуточно, без выходных и праздников. Приедем в любое время, когда нужна помощь.</p>
+                </div>
+
+                <div class="why-card" data-animate>
+                    <div class="why-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="why-title">Гарантия 2 года</h3>
+                    <p class="why-text">Все сотрудники проверены, граждане РФ, без судимостей. Гарантия на все работы до 2 лет.</p>
+                </div>
+
+                <div class="why-card" data-animate>
+                    <div class="why-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="why-title">Штат 50+ человек</h3>
+                    <p class="why-text">Всегда можем выделить нужное количество мастеров. Средний опыт — от 7 лет.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <div class="section-label">Отзывы клиентов</div>
+                <h2 class="section-title">Реальный опыт <span>реальных людей</span></h2>
+                <p class="section-subtitle">Более 500 семей доверили нам свои инженерные системы</p>
+            </div>
+            
+            <!-- Слайдер с отзывами -->
+            <div class="testimonials-slider" data-animate>
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Отзыв 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Кирилл" alt="Кирилл">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4 class="testimonial-name">Кирилл Г.</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">Старая колонка взрывалась с хлопком. Мастер приехал в воскресенье, нашёл мембрану, сам купил и поставил. Чётко, быстро, честно.</p>
+                        <div class="testimonial-date">12 февраля 2026</div>
+                    </div>
+                    
+                    <!-- Отзыв 2 (featured) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Александр" alt="Александр">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4 class="testimonial-name">Александр Н.</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">На выходных умер котёл. Единственный, кто ответил и приехал утром. Разобрался с платой, воскресили. Реально крутой мастер! Очень рекомендую эту компанию.</p>
+                        <div class="testimonial-date">5 февраля 2026</div>
+                    </div>
+                    
+                    <!-- Отзыв 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Михаил" alt="Михаил">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4 class="testimonial-name">Михаил</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">В морозы сломался котёл. Через час приехал, забрал плату, через 2 дня поставил — всё заработало. Спасибо большое за оперативность!</p>
+                        <div class="testimonial-date">28 января 2026</div>
+                    </div>
+                    
+                    <!-- Отзыв 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Светлана" alt="Светлана">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4 class="testimonial-name">Светлана К.</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">Единственный, кто согласился чинить настенный Navien! Качественный подход, отличный сервис. Огромное спасибо мастеру Дмитрию.</p>
+                        <div class="testimonial-date">15 января 2026</div>
+                    </div>
+                    
+                    <!-- Отзыв 5 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Дмитрий" alt="Дмитрий">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4 class="testimonial-name">Дмитрий</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">Приехал через час, всё быстро починил. По цене — намного дешевле, чем ожидал. Без переплат и разводов. Буду обращаться ещё!</p>
+                        <div class="testimonial-date">10 января 2026</div>
+                    </div>
+                </div>
+                
+                <!-- Навигация слайдера - БЕЗ ТОЧЕК -->
+                <div class="slider-nav">
+                    <button class="slider-prev" id="sliderPrev">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="slider-next" id="sliderNext">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Блок с рейтингом -->
+            <div class="testimonials-stats" data-animate>
+                <div class="rating-badge">
+                    <div class="rating-number">4.9</div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating-total">на основе 537 отзывов</div>
+                </div>
+                <div class="rating-platforms">
+                    <div class="platform-item">
+                        <i class="fab fa-google"></i>
+                        <span>4.8</span>
+                    </div>
+                    <div class="platform-item">
+                        <i class="fab fa-yandex"></i>
+                        <span>4.9</span>
+                    </div>
+                    <div class="platform-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>5.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-animate>
+                <h2 class="cta-title">Готовы начать?</h2>
+                <p class="cta-subtitle">Оставьте заявку — перезвоним через 15 минут, проконсультируем и рассчитаем стоимость</p>
+               
+                <div class="cta-features">
+                    <div class="cta-feature"><i class="fas fa-shield-alt"></i> Гарантия до 2 лет</div>
+                    <div class="cta-feature"><i class="fas fa-ruble-sign"></i> Прозрачные цены</div>
+                    <div class="cta-feature"><i class="fas fa-clock"></i> Выезд за 30 мин</div>
+                    <div class="cta-feature"><i class="fas fa-file-contract"></i> Работа по договору</div>
+                </div>
+               
+                <button id="finalCtaBtn" class="cta-button-large">
+                    <i class="fas fa-phone-alt"></i>
+                    Оставить заявку
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">Котл<span class="footer-logo-off">OFF</span></div>
+                    <p class="footer-description">Профессиональные услуги по монтажу, обслуживанию и ремонту инженерных систем в Чебоксарах и области.</p>
+                   
+                    <a href="tel:+79029242466" class="footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+7 (902) 924-24-66</span>
+                    </a>
+                   
+                    <a href="#" class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Чебоксары</span>
+                    </a>
+                </div>
+               
+                <div class="footer-column">
+                    <h3 class="footer-heading">Услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services" class="nav-link" data-target="services"><i class="fas fa-fire"></i> Газовые работы</a></li>
+                        <li><a href="#services" class="nav-link" data-target="services"><i class="fas fa-wrench"></i> Сантехнические работы</a></li>
+                        <li><a href="#services" class="nav-link" data-target="services"><i class="fas fa-water"></i> МИСС</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-column">
+                    <h3 class="footer-heading">Информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="#why-choose-us" class="nav-link" data-target="why-choose-us"><i class="fas fa-star"></i> О нас</a></li>
+                        <li><a href="#testimonials" class="nav-link" data-target="testimonials"><i class="fas fa-comment"></i> Отзывы</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="copyright">
+                © 2026 КотлOFF. Все права защищены.
+                <div class="legal-links">
+                    <a href="#" class="legal-link" data-modal="privacy">Политика конфиденциальности</a>
+                    <span class="legal-separator">•</span>
+                    <a href="#" class="legal-link" data-modal="agreement">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно заявки -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <h2 class="modal-title">Оставить заявку</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label class="form-label">Ваше имя</label>
+                    <input type="text" class="form-input" placeholder="Имя" required>
+                </div>
+               
+                <div class="form-group">
+                    <label class="form-label">Телефон</label>
+                    <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                </div>
+               
+                <div class="form-group">
+                    <label class="form-label">Комментарий</label>
+                    <textarea class="form-textarea" placeholder="Опишите задачу"></textarea>
+                </div>
+               
+                <button type="submit" class="form-button">
+                    <i class="fas fa-paper-plane"></i>
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Баннер cookie -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>Мы используем файлы cookie. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>.</p>
+            <button id="acceptCookies" class="cookie-accept-btn">Принять</button>
+        </div>
+    </div>
+
+    <!-- Плавающая кнопка мастера -->
+    <div class="master-fly-btn" id="masterFlyBtn">
+        <button id="openMasterBtn" class="dynamic-btn">Подобрать мастера →</button>
+    </div>
+
+    <!-- Прогресс-бар скролла -->
+    <div class="scroll-progress" id="scrollProgress">
+        <svg viewBox="0 0 60 60">
+            <circle class="bg-circle" cx="30" cy="30" r="27" />
+            <circle class="progress-circle" cx="30" cy="30" r="27" />
+        </svg>
+        <div class="progress-text">0%</div>
+    </div>
+
+    <!-- Модалка Политики конфиденциальности -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content modal-legal">
+            <button class="modal-close" data-close>×</button>
+            <h2 class="modal-title">Политика конфиденциальности</h2>
+            <div class="legal-text">
+                <p><strong>1. Общие положения</strong></p>
+                <p>Настоящая Политика конфиденциальности (далее — Политика) действует в отношении всей информации, которую ООО «КотлOFF» (далее — Оператор, мы) может получить о пользователе во время использования сайта kotloff.ru (далее — Сайт).</p>
+                <p><strong>2. Какие данные мы собираем</strong></p>
+                <ul>
+                    <li>ФИО, номер телефона, адрес электронной почты — при заполнении формы заявки</li>
+                    <li>IP-адрес, данные браузера, файлы cookie, геолокация (при согласии)</li>
+                    <li>Данные об устройстве и взаимодействии с сайтом (статистика)</li>
+                </ul>
+                <p><strong>3. Цели обработки персональных данных</strong></p>
+                <ul>
+                    <li>Связь с вами для оказания услуг</li>
+                    <li>Улучшение работы сайта и персонализация</li>
+                    <li>Выполнение требований законодательства РФ</li>
+                    <li>Маркетинговые цели (только с вашего согласия)</li>
+                </ul>
+                <p><strong>4. Как мы защищаем ваши данные</strong></p>
+                <p>Мы используем современные технические и организационные меры защиты (шифрование, ограничение доступа, регулярные проверки). Данные хранятся на территории Российской Федерации.</p>
+                <p><strong>5. Срок хранения</strong></p>
+                <p>Персональные данные хранятся в течение срока, необходимого для целей обработки, но не более 3 лет после последнего обращения, если иное не предусмотрено законом.</p>
+                <p><strong>6. Ваши права</strong></p>
+                <p>Вы имеете право:</p>
+                <ul>
+                    <li>Получить доступ к своим данным</li>
+                    <li>Требовать их исправления или удаления</li>
+                    <li>Отозвать согласие на обработку</li>
+                    <li>Ограничить обработку</li>
+                </ul>
+                <p>Для реализации прав пишите на <a href="mailto:info@kotloff.ru">info@kotloff.ru</a></p>
+                <p><strong>7. Изменения Политики</strong></p>
+                <p>Мы можем обновлять Политику. Новая редакция вступает в силу с момента публикации на сайте.</p>
+                <p><strong>Дата публикации:</strong> 16 февраля 2026 г.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка Пользовательского соглашения -->
+    <div class="modal-overlay" id="agreementModal">
+        <div class="modal-content modal-legal">
+            <button class="modal-close" data-close>×</button>
+            <h2 class="modal-title">Пользовательское соглашение</h2>
+            <div class="legal-text">
+                <p><strong>1. Общие положения</strong></p>
+                <p>Настоящее Пользовательское соглашение (далее — Соглашение) регулирует отношения между вами (Пользователь) и ООО «КотлOFF» (Оператор) при использовании сайта kotloff.ru.</p>
+                <p><strong>2. Принятие условий</strong></p>
+                <p>Используя Сайт, вы подтверждаете, что ознакомились с настоящим Соглашением и принимаете его условия в полном объёме.</p>
+                <p><strong>3. Права и обязанности сторон</strong></p>
+                <p>Оператор обязуется:</p>
+                <ul>
+                    <li>Предоставлять информацию об услугах</li>
+                    <li>Обеспечивать работоспособность сайта</li>
+                </ul>
+                <p>Пользователь обязуется:</p>
+                <ul>
+                    <li>Не использовать Сайт в незаконных целях</li>
+                    <li>Не размещать вредоносный контент</li>
+                    <li>Не пытаться получить несанкционированный доступ</li>
+                </ul>
+                <p><strong>4. Интеллектуальная собственность</strong></p>
+                <p>Весь контент сайта (тексты, изображения, дизайн, логотип) принадлежит Оператору или используется на основании законных прав. Копирование без разрешения запрещено.</p>
+                <p><strong>5. Ответственность</strong></p>
+                <p>Оператор не несёт ответственности за:</p>
+                <ul>
+                    <li>Временные сбои в работе сайта</li>
+                    <li>Убытки, возникшие в результате использования информации с сайта</li>
+                </ul>
+                <p><strong>6. Изменение и расторжение</strong></p>
+                <p>Оператор вправе в одностороннем порядке изменять Соглашение. Новая редакция публикуется на сайте и вступает в силу немедленно.</p>
+                <p><strong>7. Применимое право</strong></p>
+                <p>Соглашение регулируется законодательством Российской Федерации. Все споры подлежат рассмотрению в суде по месту нахождения Оператора.</p>
+                <p><strong>Дата публикации:</strong> 16 февраля 2026 г.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Подключение внешнего JS -->
+    <script src="script.js" defer></script>
+</body>
+</html>

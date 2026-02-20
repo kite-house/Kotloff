@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: .
+    command: uvicorn src.app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./app:/src/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env 
+
+  db:
+    image: postgres:14-alpine
+    container_name: postgres_db_backend
+    restart: always
+    environment:
+      - POSTGRES_USER = %{DB_USER}
+      - POSTGRES_PASSWORD = %{DB_PASS}
+      - POSTGRES_DB = database_backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
