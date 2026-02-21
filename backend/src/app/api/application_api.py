@@ -34,11 +34,6 @@ async def create_application(
 
     return {"status" : "Успешно!", "message": "Заявка успешно создана!"}
 
-@router.get('/api/application')
-async def create_application():
-    return {"status" : "Ошибка!", "message": "Отправлен GET!"}
-
-
 @router.get('/')
 async def main(session: Annotated[AsyncSession, Depends(get_session)]):
     return {'status' : "Успешно!", "message": "Используйте /application для создание заявки"}
