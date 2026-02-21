@@ -1,10 +1,7 @@
 import os
 import logging
 from contextlib import asynccontextmanager
-
-import json
 from fastapi import FastAPI, HTTPException
-from google.oauth2 import service_account
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import gspread
@@ -17,7 +14,7 @@ from datetime import datetime
 log_level = os.getenv("LOG_LEVEL", "INFO" if os.getenv("ENV") == "production" else "DEBUG").upper()
 logging.basicConfig(level=log_level, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
-app = FastAPI()
+
 load_dotenv()
 
 # ------------------- Конфигурация -------------------
@@ -27,13 +24,9 @@ GOOGLE_SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
 SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE", "service-account.json")
 
 # Путь к SQLite — в production используй volume / persistent disk
-DB_PATH = os.getenv("DB_PATH", "./bot_requests.db")  # ← в проде будет /data/bot_requests.db или подобное
+DB_PATH = os.getenv("DB_PATH", "C:/Users/Abrikos/PycharmProjects/PythonProject3/bot_requests.db")  # ← в проде будет /data/bot_requests.db или подобное
 
 ENV = os.getenv("ENV", "development")  # production / development
-logger.info(f"TELEGRAM_BOT_TOKEN exists: {bool(os.getenv('TELEGRAM_BOT_TOKEN'))}")
-logger.info(f"TELEGRAM_CHAT_ID exists: {bool(os.getenv('TELEGRAM_CHAT_ID'))}")
-logger.info(f"GOOGLE_SHEET_ID exists: {bool(os.getenv('GOOGLE_SHEET_ID'))}")
-logger.info(f"Всего переменных в env: {len(os.environ)}")
 
 if not all([TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, GOOGLE_SHEET_ID]):
     logger.critical("Отсутствуют обязательные переменные окружения")
@@ -43,18 +36,10 @@ if not all([TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, GOOGLE_SHEET_ID]):
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
 # Google Sheets
-json_str = os.getenv("GOOGLE_CREDENTIALS_JSON")
-if not json_str:
-    raise ValueError("GOOGLE_CREDENTIALS_JSON не найден в переменных окружения!")
-
-credentials_info = json.loads(json_str)
-credentials = service_account.Credentials.from_service_account_info(
-    credentials_info,
-    scopes=["https://www.googleapis.com/auth/spreadsheets"]
-)
-
-gc = gspread.authorize(credentials)
-sheet = gc.open_by_key(os.getenv("GOOGLE_SHEET_ID")).sheet1
+scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=scopes)
+gc = gspread.authorize(creds)
+sheet = gc.open_by_key(GOOGLE_SHEET_ID).sheet1
 
 # Инициализация заголовков
 if len(sheet.get_all_values()) == 0:
@@ -143,16 +128,13 @@ async def process_request(data: RequestData):
 
 if __name__ == "__main__":
     import uvicorn
-    import os
+
     workers = int(os.getenv("UVICORN_WORKERS", "1"))  # в проде ставь 2–4 в зависимости от CPU
     uvicorn.run(
         "app:app",
         host="0.0.0.0",
-        port=int(os.getenv("PORT", 8000)),
+        port=int(os.getenv("PORT", 8001)),
         workers=workers if ENV == "production" else 1,
         log_level="info" if ENV == "production" else "debug",
         reload=(ENV == "development"),
     )
-@app.get("/process-request")
-async def process_request_get():
-    return {"message": "Этот эндпоинт принимает только POST-запросы. Используйте POST для отправки заявки."}
