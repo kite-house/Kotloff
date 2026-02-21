@@ -50,16 +50,6 @@ services:
       - backend
       - frontend
     restart: always
-    volumes:
-      - sqlite_data:/app/data  # Монтируем том для БД
-      # ИЛИ для разработки с hot-reload:
-      # - ./telegram:/app
-    environment:
-      - DB_PATH=/app/data/bot.db  # Передаем путь к БД
-
-
-
 
 volumes:
   postgres_data:  
-  sqlite_data:  # Создаем именованный том

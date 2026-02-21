@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== КАСТОМНЫЙ КУРСОР =====
-    const cursor = document.getElementById('customCursor');
-    const cursorGlow = document.getElementById('cursorGlow');
-
-    if (cursor && cursorGlow) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
-            cursorGlow.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        });
-
-        document.addEventListener('mouseup', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursorGlow.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    }
-
     // ===== ИНТЕРАКТИВНЫЙ АРТБОРД =====
     const artboard = document.getElementById('artboard');
     const images = document.querySelectorAll('.floating-image');

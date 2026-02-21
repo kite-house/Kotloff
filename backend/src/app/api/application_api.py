@@ -16,18 +16,21 @@ async def create_application(
 ):
     
     try:
-        await crud.write_application(session, data)
+        id = await crud.write_application(session, data)
     except Exception as error:
         raise HTTPException(status_code = status.HTTP_500_INTERNAL_SERVER_ERROR, detail = f'{str(error)}')
-
-    # дергание ручки к тг бот
-    requests.post("http://telegram/process-request", json = {
-        'name' : data.name,
-        'number': data.number,
-        'comment' : data.comment,
-        'service' : data.service
-    })
-
+    else:
+        try:
+            # дергание ручки к тг бот
+            requests.post("http://telegram:8001/process-request", json = {
+                "id" : id,
+                'name' : data.name,
+                'number': data.number,
+                'comment' : data.comment,
+                'service' : data.service
+            })
+        except Exception as error:
+            raise HTTPException(status_code = status.HTTP_500_INTERNAL_SERVER_ERROR, detail = f'{str(error)}')
 
     return {"status" : "Успешно!", "message": "Заявка успешно создана!"}
 

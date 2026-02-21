@@ -27,33 +27,6 @@ body {
     color: var(--text-primary);
     line-height: 1.5;
     overflow-x: hidden;
-    cursor: none;
-}
-
-/* Кастомный курсор */
-.custom-cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.2s ease;
-    transform: translate(-50%, -50%);
-}
-
-.cursor-glow {
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle, rgba(79, 143, 255, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
 }
 
 .container {
@@ -1482,11 +1455,6 @@ footer {
         gap: 40px;
     }
     
-    .custom-cursor,
-    .cursor-glow {
-        display: none;
-    }
-    
     body {
         cursor: auto;
     }
@@ -1525,19 +1493,19 @@ footer {
     }
     
     .cta-button-large {
-        width: 100%;
-        max-width: 360px;               /* или 100% — смотри по вкусу */
-        min-height: 56px;
-        padding: 16px 28px;
-        font-size: 16px;
-        white-space: nowrap;            /* ← главное: текст в одну строку */
-        overflow: hidden;
-        text-overflow: ellipsis;        /* если вдруг не влезет — многоточие */
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        box-sizing: border-box;
+            width: 100%;
+            max-width: 360px;               /* или 100% — смотри по вкусу */
+            min-height: 56px;
+            padding: 16px 28px;
+            font-size: 16px;
+            white-space: nowrap;            /* ← главное: текст в одну строку */
+            overflow: hidden;
+            text-overflow: ellipsis;        /* если вдруг не влезет — многоточие */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-sizing: border-box;
     }
 
     .cta-button-large i {

@@ -45,15 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            const data = await response.json();
-            console.log(data)
-            if (data.success) {
-                alert(data.message); // "Заявка успешно отправлена!"
-                form.reset();        // Очистить форму
-                modalOverlay.style.display = 'none'; // Закрыть модалку
-            } else {
-                alert(data.message || 'Ошибка отправки!');
-            }
         } catch (error) {
             console.error('Ошибка fetch:', error);
             alert('Ошибка соединения с сервером. Попробуйте позже.');
