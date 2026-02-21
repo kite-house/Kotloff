@@ -248,7 +248,7 @@ header.scrolled {
     transition: transform 0.1s ease-out, box-shadow 0.3s ease;
     will-change: transform;
     border: 1px solid var(--border-light);
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .floating-image::after {
@@ -565,8 +565,8 @@ header.scrolled {
     position: relative;
     overflow: hidden;
     padding: 0 40px;
-    padding-bottom: 40px;       /* запас под весь слайдер + кнопки */
-    overflow-y: visible;        /* позволяет вылезать вниз без обрезания */
+    padding-bottom: 40px;
+    overflow-y: visible;
 }
 
 .testimonials-track {
@@ -662,8 +662,8 @@ header.scrolled {
     align-items: center;
     gap: 32px;
     margin-top: 40px;
-    padding: 12px 0 40px 0;     /* сверху 12px, снизу 40px — запас на вылезание кнопок */
-    margin-bottom: 20px;        /* дополнительный отступ от следующего контента */
+    padding: 12px 0 40px 0;
+    margin-bottom: 20px;
 }
 
 .slider-prev, .slider-next {
@@ -679,14 +679,14 @@ header.scrolled {
     font-size: 24px;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);   /* тень всегда видна */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .slider-prev:hover, .slider-next:hover {
     background: var(--accent);
     color: white;
     transform: scale(0.95);
-    box-shadow: 0 8px 20px rgba(79, 143, 255, 0.6);  /* красивый акцент вместо обрезания */
+    box-shadow: 0 8px 20px rgba(79, 143, 255, 0.6);
 }
 
 .testimonials-stats {
@@ -1494,13 +1494,13 @@ footer {
     
     .cta-button-large {
             width: 100%;
-            max-width: 360px;               /* или 100% — смотри по вкусу */
+            max-width: 360px;
             min-height: 56px;
             padding: 16px 28px;
             font-size: 16px;
-            white-space: nowrap;            /* ← главное: текст в одну строку */
+            white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;        /* если вдруг не влезет — многоточие */
+            text-overflow: ellipsis;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -1523,11 +1523,11 @@ footer {
 
     .testimonials-track {
         display: flex;
-        gap: 0; /* Убрали gap, чтобы не было расстояний и "кусков" */
+        gap: 0;
         padding: 0;
         margin: 0;
-        width: 100%; /* Трек шириной экрана */
-        transition: transform 0.3s ease; /* Плавный сдвиг */
+        width: 100%;
+        transition: transform 0.3s ease;
     }
 
     .testimonial-card {
