@@ -175,9 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
-                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-                
                 setTimeout(() => {
                     orderForm.reset();
                     submitBtn.innerHTML = originalText;
